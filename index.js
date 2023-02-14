@@ -8,10 +8,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function(req, res){
-    // console.log(req);
-    // res.send('<h1>cool, it is running! or is it?</h1>');
-    return res.render('home');
-    
+    return res.render('home', {title: 'My Contact List'});  
 });
 
 app.listen(port, function(err){
