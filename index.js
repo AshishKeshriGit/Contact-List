@@ -9,6 +9,21 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded());
 
+//middleware 1
+// app.use(function(req, res, next){
+//     req.myName = 'Ashish'
+//     // console.log('middleware 1 called');
+//     next();
+// });
+
+// //middleware 2
+// app.use(function(req, res, next){
+//     console.log('from middleware 2 :', req.myName);
+   
+//     // console.log('middleware 2 called');
+//     next();
+// });
+
 var contactList = [
     {
         name: 'Ashish',
@@ -35,6 +50,7 @@ app.get('/practice', function(req, res){
     return res.render('practice',{
         title: 'play with ejs'
     });
+
 });
 
 app.post('/create-contact', function(req, res){
@@ -42,6 +58,9 @@ app.post('/create-contact', function(req, res){
     //     name: req.body.name,
     //     phone: req.body.phone
     // });
+
+    // req.myName = 'Akanksha'
+    // console.log('from post middleware /create-contact: ', req.myName);
 
     contactList.push(req.body);
 
