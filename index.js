@@ -9,6 +9,8 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded());
 
+app.use(express.static('assets'));//for using static files
+
 //middleware 1
 // app.use(function(req, res, next){
 //     req.myName = 'Ashish'
