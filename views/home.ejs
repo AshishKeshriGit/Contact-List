@@ -7,14 +7,20 @@
     <title>
         <%= locals.title %>
     </title>
+    <!-- font-awesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-    <h1>Contact List </h1>
+    
+    <h1 id="heading">
+        <i class="fa-solid fa-address-book"></i>
+        My Contacts List 
+    </h1>
     <ul>
         <% for(let i of contact_list){ %>
-            <li>
+            <li id="contact-details">
                 <p><%= i.name %></p>
                 <p><%= i.phone %></p>
             </li>

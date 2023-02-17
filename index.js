@@ -4,10 +4,10 @@ const path = require('path');
 
 const app = express();
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');//for accessing ejs file
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.urlencoded());
+app.use(express.urlencoded());//to read the request data i.e req.body.name , req.body.phone
 
 app.use(express.static('assets'));//for using static files
 

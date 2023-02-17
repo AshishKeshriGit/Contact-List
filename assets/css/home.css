@@ -1,3 +1,53 @@
 body{
+    margin: 0;
+    font-family: sans-serif;
+    width: 100vw;
+}
+
+#heading{
     text-align: center;
+    color: grey;
+}
+
+#contact-details{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    margin: auto;
+    background-color: rgb(86, 125, 211);
+    color: white;
+    margin-bottom: 2px;
+    padding: 0 10px 0 10px;
+    line-height: 5px;
+}
+#contact-details:hover{
+    background-color: grey;
+    cursor: pointer;
+}
+
+ul{
+    padding-inline-start: 0px;
+    width:100vw;
+}
+
+form{
+    margin-left: 27%;
+    margin-right: 27%;
+    display: flex;
+    justify-content: space-around;
+}
+
+input{
+    border-width: 0 0 2px 0;
+    width: 25%;
+}
+
+button{
+    border-width: 0;
+    color: white;
+    background-color: grey;
+}
+button:hover{
+    cursor: pointer;
 }
