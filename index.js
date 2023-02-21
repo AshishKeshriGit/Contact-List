@@ -3,10 +3,9 @@ const port = 8000;
 const path = require('path');
 
 const db = require('./config/mongoose');
+const Contact = require('./models/contact');
 
 const app = express();
-
-
 
 app.set('view engine', 'ejs');//for accessing ejs file
 app.set('views', path.join(__dirname, 'views'));
