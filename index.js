@@ -2,12 +2,16 @@ const express = require('express');
 const port = 8000;
 const path = require('path');
 
+const db = require('./config/mongoose');
+
 const app = express();
+
+
 
 app.set('view engine', 'ejs');//for accessing ejs file
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(express.urlencoded());//to read the request data i.e req.body.name , req.body.phone
+app.use(express.urlencoded());//to read the submited form data i.e req.body.name , req.body.phone
 
 app.use(express.static('assets'));//for using static files
 
