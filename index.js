@@ -64,12 +64,20 @@ app.post('/create-contact', function(req, res){
     //     phone: req.body.phone
     // });
 
-    // req.myName = 'Akanksha'
-    // console.log('from post middleware /create-contact: ', req.myName);
+    // contactList.push(req.body);
 
-    contactList.push(req.body);
+    Contact.create({
+        name: req.body.name,
+        phone: req.body.phone 
+    }, function(err, newContact){
+        if(err){
+            console.log('error in creating a contact', err);
+            return;
+        }
 
-    return res.redirect('/');
+        console.log('contact created successfully: ', newContact);
+        return res.redirect('back');
+    });
 });
 
 //For deleting a contact
