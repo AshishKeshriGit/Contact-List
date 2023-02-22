@@ -3,6 +3,5 @@
 
  A BackEnd project
 
-# Note:-
-   Not yet completed, still working on this :) 
+
 
