@@ -29,26 +29,34 @@ app.use(express.static('assets'));//for using static files
 //     next();
 // });
 
-var contactList = [
-    {
-        name: 'Ashish',
-        phone: '7258860749'
-    },
-    {
-        name: 'Akanksha',
-        phone: '9122415882'
-    },
-    {
-        name: 'monu',
-        phone: '7491952136'
-    }
-]
+// var contactList = [
+//     {
+//         name: 'Ashish',
+//         phone: '7258860749'
+//     },
+//     {
+//         name: 'Akanksha',
+//         phone: '9122415882'
+//     },
+//     {
+//         name: 'monu',
+//         phone: '7491952136'
+//     }
+// ]
 
 app.get('/', function(req, res){
-    return res.render('home', {
-        title: 'My Contact List',
-        contact_list: contactList
-    });  
+   
+    Contact.find({}, function(err, contacts){
+        if(err){
+            console.log('error in finding the contact from db');
+            return;
+        }
+
+        return res.render('home', {
+            title: 'My Contact List',
+            contact_list: contacts
+        }); 
+    });
 });
 
 app.get('/practice', function(req, res){
@@ -82,17 +90,26 @@ app.post('/create-contact', function(req, res){
 
 //For deleting a contact
 app.get('/delete-contact', function(req, res){
-    //get the query from the url
-    let phone = req.query.phone;
+    //get the phone from the query in the url
+    // let phone = req.query.phone;
 
-    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+    // let contactIndex = contactList.findIndex(contact => contact.phone == phone);
 
-    if(contactIndex != -1){
-        contactList.splice(contactIndex, 1);
-    }
+    // if(contactIndex != -1){
+    //     contactList.splice(contactIndex, 1);
+    // }
 
-    return res.redirect('back');
-    
+    //get the id from the query in the url
+    let id = req.query.id;
+    Contact.findByIdAndDelete(id, function(err){
+        if(err){
+            console.log('error in deleting a contact from database');
+            return;
+        }
+
+        return res.redirect('back');
+    });
+
 });
 
 app.listen(port, function(err){
