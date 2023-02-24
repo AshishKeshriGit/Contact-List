@@ -14,7 +14,3 @@ db.on('error', console.error.bind(console, 'error connecting to db'));
 db.once('open', function(){
     console.log('successfully connected to database');
 });
-
-module.exports = {
-    MongoURI: 'mongodb+srv://ashish3016:Ashish123@cluster0.oh1ywft.mongodb.net/contacts_list_db?retryWrites=true&w=majority'
-}
